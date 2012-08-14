@@ -1,0 +1,10 @@
+<h1><%= @user.name%></h1>
+<h2><%= @user.email %> </h2> 
+<h2> <%= @user.school.name %> </h2>
+<h2> <%= @user.dorm.name %> </h2>
+
+
+	<%= link_to "edit", edit_user_path(@user)%> 
+	<%= link_to "delete", user_path(@user), :method => "delete" %>
+
+

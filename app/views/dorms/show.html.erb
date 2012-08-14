@@ -1,0 +1,7 @@
+<h1> <%= @dorm.name%></h1>
+
+<h2> Here is everyone in your dorm! </h2>
+
+<h3> <% @dorm.users.each do |user| %> 
+	<%= user.name%> <br/>
+	<% end %> </h3>

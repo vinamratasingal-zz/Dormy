@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dormy</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+<section id = "bottom"> 		
+
+	<div id = "navigation"> 			      
+		<ul>
+        	<li>FAQ</li>
+			<li>About</li>
+        	<li> <a href="http://www.stuffstanfordstudentseat.tumblr.com" title="Blog"> Blog </a></li>
+
+			<p class="notice"><%= notice %></p>
+			<p class="alert"><%= alert %></p>
+    
+      </ul>
+    </div>
+</section>
+</body>
+</html>
+
+	
