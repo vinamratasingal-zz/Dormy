@@ -4,7 +4,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.references :dorm
       t.references :school
-
       t.timestamps
     end
     add_index :users, :dorm_id

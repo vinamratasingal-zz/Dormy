@@ -10,6 +10,7 @@ Dormy::Application.routes.draw do
   get "welcome/about"
   get "welcome/FAQ"
   root :to => 'welcome#index'
+  
 
 
   # The priority is based upon order of creation:
