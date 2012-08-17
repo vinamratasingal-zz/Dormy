@@ -17,6 +17,7 @@ Dormy::Application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   #config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.delivery_method = :smtp
   
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.perform_deliveries = true
@@ -24,8 +25,8 @@ Dormy::Application.configure do
     :address              => "smtp.gmail.com",
     :port                 => "587",
     :domain               => 'gmail.com',
-    :user_name            => 'vinamrata.singal@gmail.com',
-    :password             => '*******',
+    :user_name            => 'dormyconfirmation@gmail.com',
+    :password             => 'ihatedog',
     :authentication       => 'plain',
     :enable_starttls_auto => true }
   

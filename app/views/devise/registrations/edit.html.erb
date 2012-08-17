@@ -17,12 +17,13 @@
 
 	<div>
 		<%= f.label :school %> <br />
-		<%= f.text_field :school_id %>
+		<%= f.collection_select :school_id, User::SCHOOLS, :to_s, :to_s%> 
+		       <%#uncomment to add more schools:include_blank => true %>
 	</p> </div>
 	
 	<div>
 		<%= f.label :dorm %> <br />
-		<%= f.text_field :dorm_id %>
+		<%= f.collection_select :dorm_id, User::DORMS, :to_s, :to_s, :include_blank => true %>
 	</p> </div>
 
   <div><%= f.submit "Update" %></div>
