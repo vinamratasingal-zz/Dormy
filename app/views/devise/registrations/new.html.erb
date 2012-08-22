@@ -3,7 +3,10 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %> <br />
+  <div><%= f.label :name %><br />
+      <%= f.text_field :name %></div>
+
+	<div><%= f.label :email %> <br />
   <%= f.email_field :email %>
 	<p> Note: Please use school email </p></div>
 
@@ -15,13 +18,12 @@
 
 	<div>
 		<%= f.label :school %> <br />
-		<%= f.collection_select :school_id, User::SCHOOLS, :to_s, :to_s%> 
-		       <%#uncomment to add more schools:include_blank => true %>
+		<%= f.collection_select :school_id, School.all, :id, :name, {:include_blank => true} %>
 	</p> </div>
 	
 	<div>
 		<%= f.label :dorm %> <br />
-		<%= f.collection_select :dorm_id, User::DORMS, :to_s, :to_s, :include_blank => true %>
+		<%= f.collection_select :dorm_id, Dorm.all, :id, :name, {:include_blank => true} %>
 	</p> </div>
 
   <div><%= f.submit "Sign up" %></div>

@@ -10,7 +10,10 @@ class User < ActiveRecord::Base
   belongs_to :dorm
   belongs_to :school
   attr_accessible :name, :dorm_id, :school_id
-  SCHOOLS = ['Stanford University']
-  DORMS = ['Arroyo', 'Cedro', 'Junipero', 'Okada', 'Otero', 'Rinconada', 'Soto', 'Trancos', 'Burbank', 'Donner', 'Larkin', 'Serra', 'Twain', 'Casa Zapata', 'Ujama', 'Roble', 'Lagunita Court', 'Alondra', 'Cardenal', 'Faisan', 'Gavilan', 'Loro', 'Mirlo', 'Paloma']
-validates :email, :format => { :with => /.*@stanford.com$/, :message => "must be a stanford email address"}  
+  validates :email, :format => { :with => /.*@stanford.edu$/, :message => "must be a Stanford email address"}  
+  
+  def self.search(name)
+    where('name LIKE ?', "%#{name}%")
+  end 
+
 end

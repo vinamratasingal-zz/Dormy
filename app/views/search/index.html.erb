@@ -1,0 +1,14 @@
+<h1> Search Results </h1>
+<h2> Here are your search results </h2>
+
+<h3> Here are the users that match your query </h3>
+<% @users.each do |user| %>
+	<%= user.name%>
+	<%= user.dorm.name%>
+<% end%>
+
+<h3> Here are the dorms that matched your query </h3>
+<% @dorms.each do |dorm| %>
+	<%=link_to dorm.name, dorm%> 
+<%end%>
+

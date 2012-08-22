@@ -1,11 +1,12 @@
 Dormy::Application.routes.draw do
   
 
+  get "search" => "search#index"
+
   devise_for :users
 
   resources :users
   resources :dorms, :only => [:show] 
-  
   get "welcome/index"
   get "welcome/about"
   get "welcome/FAQ"
