@@ -1,14 +1,16 @@
-<h2>Sign up</h2>
+<form class = "form-horizontal">
+<legend>Sign up</legend>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :name %><br />
-      <%= f.text_field :name %></div>
+   
+	  <%= f.label :name %><br />
+      <%= f.text_field :name %>
 
 	<div><%= f.label :email %> <br />
   <%= f.email_field :email %>
-	<p> Note: Please use school email </p></div>
+	<span class="help-inline">Please use your school email address</span>
 
   <div><%= f.label :password %><br />
       <%= f.password_field :password %></div>
@@ -26,7 +28,8 @@
 		<%= f.collection_select :dorm_id, Dorm.all, :id, :name, {:include_blank => true} %>
 	</p> </div>
 
-  <div><%= f.submit "Sign up" %></div>
+  <%= f.submit "Sign up", :class => "btn btn-info" %>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</form>
