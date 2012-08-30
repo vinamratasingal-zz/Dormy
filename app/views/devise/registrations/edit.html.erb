@@ -28,7 +28,7 @@
 		<%= f.collection_select :dorm_id, Dorm.all, :id, :name, {:include_blank => true} %>
 	</p> </div>
 
-  <div><%= f.submit "Update" %></div>
+  <%= f.submit "Update", :class => "btn btn-info"%>
 <% end %>
 
 <h3>Cancel my account</h3>

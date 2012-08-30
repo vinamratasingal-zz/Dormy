@@ -1,14 +1,32 @@
-<h1> Search Results </h1>
-<h2> Here are your search results </h2>
+<div class = "page-header"><h1> Search Results </h1> 
+<h2> Here are your search results </h2> </div>
 
 <h3> Here are the users that match your query </h3>
+<table class = "table table-striped">
+	<tr>
+		<th> Name </th>
+		<th> Dorm </th>
+	</tr>
+	<tr>
 <% @users.each do |user| %>
-	<%= user.name%>
-	<%= user.dorm.name%>
+	<td> <%= user.name%> </td>
+	<td> <%= user.dorm.name%> </td>
 <% end%>
+</tr>
+</table>
 
-<h3> Here are the dorms that matched your query </h3>
+
+<div id = "dorms"> 
+	<h3> Here are the dorms that matched your query </h3>
+<table class = "table table-striped">
+	<tr>
+		<th> Dorm </th>
+	</tr>
+	<tr>
 <% @dorms.each do |dorm| %>
-	<%=link_to dorm.name, dorm%> 
+	<td> <%=link_to dorm.name, dorm%> </td>
 <%end%>
+</tr>
+</table>
+</div>
 

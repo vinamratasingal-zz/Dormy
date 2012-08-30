@@ -7,27 +7,32 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+	<div class="navbar">
+	  <div class="navbar-inner">
+	    <a class="brand" href="#">Dormy</a>
+	    <ul class="nav">
+	      <li class="active"> <%= link_to "About", welcome_about_path%> </li>
+  		  <li> <%= link_to "FAQ", welcome_FAQ_path%> </li>
+        <% if current_user %>
+          <li><%= link_to "Sign out", destroy_user_session_path(@user)%> </li>
+        <% else %>
+          <li> <%= link_to "Sign up", new_user_registration_path(@user)%> </li>
+          <li><%= link_to "Sign in", new_user_session_path(@user)%> </li>
+        <% end %>
+		  
+		 
+	    </ul>
+	  </div>
+	</div>
+	
+	
+<% if flash[:notice] || flash[:alert] %>	   
+  <div class="alert"><%= flash[:notice] %></div>
+  <div class="alert"><%= flash[:alert] %></div>
+<% end %>
 <div class ="container">
 	<%= yield %>
 </div>
-<section id = "bottom"> 		
-
-	<div id = "navigation"> 			      
-		<ul>
-        	<%= link_to "Sign in",  new_user_session_path(@user)%>
-			<%= link_to "Sign out", destroy_user_session_path(@user)%>
-			<%= link_to "Sign up", new_user_registration_path(@user)%>
-			<%= link_to "FAQ", welcome_FAQ_path%>
-			<%= link_to "About", welcome_about_path%>
-        	<a href="http://www.stuffstanfordstudentseat.tumblr.com" title="Blog"> Blog </a>
-
-		
-    
-      </ul>
-    </div>
-</section>
 </body>
 </html>
 
