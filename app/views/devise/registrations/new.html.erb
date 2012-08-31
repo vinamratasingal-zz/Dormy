@@ -1,32 +1,62 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<%= form_for resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => "form-horizontal"} do |f| %>
   <%= devise_error_messages! %>
+  
+  <legend>Sign up</legend>
+  
+  <div class="control-group">
+    <%= f.label :name, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :name, :placeholder => "Name" %>
+    </div>
+  </div>
 
-  <div><%= f.label :name %><br />
-      <%= f.text_field :name %></div>
+  <div class="control-group">
+    <%= f.label :email, class: "control-label" %>
+    <div class="controls">
+      <%= f.email_field :email %>
+      <%= content_tag :span, "Please use your school email address", class: "help-inline" %>
+    </div>
+  </div>
 
-	<div><%= f.label :email %> <br />
-  <%= f.email_field :email %>
-	<p> Note: Please use school email </p></div>
+  <div class="control-group">
+    <%= f.label :password, class: "control-label" %>
+    <div class="controls">
+      <%= f.password_field :password %>
+    </div>
+  </div>
 
-  <div><%= f.label :password %><br />
-      <%= f.password_field :password %></div>
+  <div class="control-group">
+    <%= f.label :password_confirmation, class: "control-label" %>
+    <div class="controls">
+      <%= f.password_field :password_confirmation %>
+    </div>
+  </div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <div class="control-group">
+    <%= f.label :school_id, class: "control-label" %>
+    <div class="controls">
+      <%= f.collection_select :school_id, School.all, :id, :name, {:include_blank => true} %>
+    </div>
+  </div>
 
-	<div>
-		<%= f.label :school %> <br />
-		<%= f.collection_select :school_id, School.all, :id, :name, {:include_blank => true} %>
-	</p> </div>
-	
-	<div>
-		<%= f.label :dorm %> <br />
-		<%= f.collection_select :dorm_id, Dorm.all, :id, :name, {:include_blank => true} %>
-	</p> </div>
+  <div class="control-group">
+    <%= f.label :dorm_id, class: "control-label" %>
+    <div class="controls">
+      <%= f.collection_select :dorm_id, School.all, :id, :name, {:include_blank => true} %>
+    </div>
+  </div>
 
-  <div><%= f.submit "Sign up" %></div>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit "Sign up", :class => "btn btn-info" %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+
+
 <% end %>
-
-<%= render "devise/shared/links" %>
