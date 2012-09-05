@@ -12,11 +12,13 @@
 	    <a class="brand" href="#">Dormy</a>
 	    <ul class="nav">
 	      <li class="active"> <%= link_to "About", welcome_about_path%> </li>
-		  <li> <%= link_to "FAQ", welcome_FAQ_path%> </li>
-		  <li> <%= link_to "Sign up", new_user_registration_path(@user)%> </li>
-		  <li><%= link_to "Sign in", new_user_session_path(@user)%> </li>
-		  <li><%= link_to "Sign out", destroy_user_session_path(@user)%> </li>
-	     
+  		  <li> <%= link_to "FAQ", welcome_FAQ_path%> </li>
+        <% if current_user %>
+          <li><%= link_to "Sign out", destroy_user_session_path(@user)%> </li>
+        <% else %>
+          <li> <%= link_to "Sign up", new_user_registration_path(@user)%> </li>
+          <li><%= link_to "Sign in", new_user_session_path(@user)%> </li>
+        <% end %>
 		  
 		 
 	    </ul>
@@ -24,9 +26,12 @@
 	</div>
 	
 	
-	   
-<siv class="alert"><%= notice %></div>
-<div class="alert"><%= alert %></div>
+<% if flash[:notice]  %>	   
+  <div class="alert"><%= flash[:notice] %></div>
+<% end %>
+<% if flash[:alert]  %>	   
+  <div class="alert"><%= flash[:alert] %></div>
+<% end %>
 <div class ="container">
 	<%= yield %>
 </div>
