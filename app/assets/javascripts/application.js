@@ -9,8 +9,19 @@
 //
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
-//
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+$(document).ready(function() { 
+	
+	$("button#search3").click(function(){
+		$("table#users2").slideToggle('slow'); 
+	}); 
+
+	$("button#search4").click(function(){ 
+		$("table#dorms2").slideToggle('slow'); 
+	}); 
+
+});
