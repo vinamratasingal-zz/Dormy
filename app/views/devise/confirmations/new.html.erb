@@ -1,10 +1,15 @@
 <h2>Resend confirmation instructions</h2>
 
-<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :class => "form-horizontal", :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+<div class="control-group">
+    <%= f.label :email, class: "control-label" %>
+    <div class="controls">
+      <%= f.email_field :email, :placeholder => "Email" %>
+      <%= content_tag :span, "Please use your school email address", class: "help-inline" %>
+    </div>
+  </div>
 
   <div><%= f.submit "Resend confirmation instructions", :class => "btn btn-info" %></div>
 <% end %>
